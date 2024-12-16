@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <base target="_top">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Histon and Impington Waterways</title>
+
+    <link rel="shortcut icon"         
+	     href="docs/images/favicon.ico" />
+
+<!-- Leaflet's own CSS -->
+    <link rel="stylesheet" 
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
+      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" 
+      crossorigin="" />
+	  
+<!-- local extras/overrides -->	  
+	<link rel="stylesheet" 
+	   href="css/this.css"/>
+
+<!-- leaflet JS-->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" 
+	integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" 
+        crossorigin="">
+    </script>
+	
+<!-- Maptiler for old OS maps -->
+	
+	  <script src="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.umd.js"></script>
+    <link href="https://cdn.maptiler.com/maptiler-sdk-js/v2.0.3/maptiler-sdk.css" rel="stylesheet" />
+    <script src="https://cdn.maptiler.com/leaflet-maptilersdk/v2.0.0/leaflet-maptilersdk.js"></script>
+	
+	
+<!-- Squarespace CSS, to help eliminate strange effects -->
+	<!--
+	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700">
+	<link rel="stylesheet" type="text/css" href="//assets.squarespace.com/universal/styles-compressed/commerce-af8809f2481c48376f6a-min.en-US.css">
+	<link rel="stylesheet" type="text/css" href="https://static1.squarespace.com/static/versioned-site-css/5f2dd8d4ba318205a289f041/334/5c5a519771c10ba3470d8101/5f2dd8d4ba318205a289f05f/1491/site.css"/>
+	 <link rel="stylesheet" type="text/css" href="https://static1.squarespace.com/static/vta/5c5a519771c10ba3470d8101/versioned-assets/1706811132467-QIR6O63RE5GI9HXI9ESJ/static.c
+ss">
+-->
+
+
+
+</head>
+
+<body>
+
+<!-- Leaflet JS requires a 'map' element -->  
+ 	<div id='map'>
+	<a href="https://www.maptiler.com" style="position:absolute;left:10px;bottom:10px;z-index:999;">
+	<img src="https://api.maptiler.com/resources/logo.svg" alt="MapTiler logo"></a>
+    </div>
+
+
+
+	<script src="data/ponds.js" type="text/javascript">
+	</script>
+	
+    <script src="scripts/mapscript.js" type="text/javascript">   
+    </script>
+	
+<div id="ack">
+
+<details>
+<summary>Acknowledgements</summary>
+<p>
+If you want to reuse or copy this application : it is licensed using the <a href="./LICENSE">APACHE 2 licence</a> and uses the <a href="https://leafletjs.com/">Leafletjs library </a> which is licenced under the <a href="https://github.com/Leaflet/Leaflet/blob/main/LICENSE"> BSD 2 licence</a>.
+TL;DR : "OK to copy and reuse"
+<p>
+Data and pictures where present, submitted by members of Histon and Impington community. Other map data is collated or reused from the following freely available sources :
+<p>
+<ul>
+<li><a href="https://martinjc.github.io/UK-GeoJSON/">UK Westminster parliamentary wards(Contains Ordnance Survey, Office of National Statistics, National Records Scotland and LPS Intellectual Property data © Crown copyright and database right [2016]. Data licensed under the terms of the Open Government Licence.Ordnance Survey data covered by OS OpenData Licence.  )</a></li>
+<li><a href="https://www.openstreetmap.org/copyright/">OpenStreetmaps data(Open Data Commons Open Database License )</a></li>
+<li><a href="https://maps.nls.uk/">National Library of Scotland historic maps(CC-BY licence)</a></li>
+<li></li>
+</ul>
+<p>
+Licences applicable to data
+<ul>
+<li><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a></li>
+<li><a href="https://www.openstreetmap.org/copyright/">Open Data Commons Open Database License</a></li>
+<li><a href="https://maps.nls.uk/copyright.html#noncommercial"> Creative commons non-commercial (CC-BY)</a></li>
+</ul>
+<p>
+Data collated, cleaned, analysed etc by HIGS using the following freely available software:
+<ul>
+<li><a href="https://qgis.org/en/site/">QGIS software</a></li>
+<li><a href="https://maps.google.co.uk/intl/en-GB/earth/download/gep/agree.html">Google Earth Pro</a></li>
+</details>
+</div>
+
+</body>
+</html>
+
+
