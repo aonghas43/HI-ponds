@@ -1,0 +1,110 @@
+<!-- version 0.9 -->
+<!--
+HTML Container for
+- custom CSS - leafetjs css overrides and others
+- tree data as Javascript
+- Javascript code for layers, styling etc.
+This file is loaded into squarespace.html via jQuery, for testing only
+-->
+
+<div id="map" style="width: 100%; height: 500px;"></div>
+
+<!-- replacment for the included css -->
+<style>
+  html, body {
+    height: 100%;
+    margin: 0;
+	
+}
+
+.leaflet-container {
+    height: 800px;
+    width: 1200px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.svg-icon {
+	/* Abbey fields green */
+	background-color:  #84c823;
+	 /* override element.style height, word wrap*/
+	height: 18px !important;
+    word-break: normal;
+	word-wrap: normal;
+	opacity: 0.3;
+	text-align: center;
+	vertical-align: center;
+}
+
+
+
+.svg-icon:hover {
+  color: #FF00FF;
+}
+
+details > summary {
+  padding: 4px;
+  width: 200px;
+  background-color:  #8FBC8F;
+  border: none;
+  box-shadow: 1px 1px 2px #bbbbbb;
+  cursor: pointer;
+  text-align: center;
+}
+
+details > p, details > ul {
+  background-color: #eeeeee;
+  padding: 4px;
+  margin: 0;
+  box-shadow: 1px 1px 2px #bbbbbb;
+}
+
+
+</style>
+
+<!--data -->
+<script type="text/javascript">
+var ponds = {
+    "type": "FeatureCollection",
+"name": "HIGS 2024-25 4 Ponds",
+"description": "HIGS 2024-25 Ponds Survey",
+"features": [ ]
+}
+</script>
+
+
+<!-- mapscript.js contents here -->
+
+<!-- acknowledgements block here -->
+<div id="ack">
+
+<details>
+<summary>Acknowledgements</summary>
+<p>
+If you want to reuse or copy this application : it is licensed using the <a href="https://www.apache.org/licenses/LICENSE-2.0">APACHE 2 licence</a> and uses the <a href="https://leafletjs.com/">Leafletjs library </a> which is licenced under the <a href="https://github.com/Leaflet/Leaflet/blob/main/LICENSE"> BSD 2 licence</a>.
+TL;DR : "OK to copy and reuse"
+<p>
+Data and pictures where present, submitted by members of Histon and Impington community. Other map data is collated or reused from the following freely available sources :
+<p>
+<ul>
+<li><a href="https://martinjc.github.io/UK-GeoJSON/">UK Westminster parliamentary wards(Contains Ordnance Survey, Office of National Statistics, National Records Scotland and LPS Intellectual Property data © Crown copyright and database right [2016]. Data licensed under the terms of the Open Government Licence.Ordnance Survey data covered by OS OpenData Licence.  )</a></li>
+<li><a href="https://www.openstreetmap.org/copyright/">OpenStreetmaps data(Open Data Commons Open Database License )</a></li>
+<li><a href="https://maps.nls.uk/">National Library of Scotland historic maps(CC-BY licence)</a></li>
+<li></li>
+</ul>
+<p>
+Licences applicable to data
+<ul>
+<li><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a></li>
+<li><a href="https://www.openstreetmap.org/copyright/">Open Data Commons Open Database License</a></li>
+<li><a href="https://maps.nls.uk/copyright.html#noncommercial"> Creative commons non-commercial (CC-BY)</a></li>
+</ul>
+<p>
+Data collated, cleaned, analysed etc by HIGS using the following freely available software:
+<ul>
+<li><a href="https://qgis.org/en/site/">QGIS software</a></li>
+<li><a href="https://maps.google.co.uk/intl/en-GB/earth/download/gep/agree.html">Google Earth Pro</a></li>
+</details>
+</div>
+
+
