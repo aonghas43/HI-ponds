@@ -1,0 +1,49 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+.leaflet-container {
+    height: 800px;
+    width: 1200px;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+.svg-icon {
+	/* Abbey fields green */
+	background-color:  #84c823;
+	 /* override element.style height, word wrap*/
+	height: 18px !important;
+    word-break: normal;
+	word-wrap: normal;
+	opacity: 0.3;
+	text-align: center;
+	vertical-align: center;
+}
+
+
+
+.svg-icon:hover {
+  color: #FF00FF;
+}
+
+details > summary {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  padding: 4px;
+  width: 200px;
+  background-color:  #8FBC8F;
+  border: none;
+  box-shadow: 1px 1px 2px #bbbbbb;
+  cursor: pointer;
+  text-align: center;
+}
+
+details > p, details > ul {
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  background-color: #eeeeee;
+  padding: 4px;
+  margin: 0;
+  box-shadow: 1px 1px 2px #bbbbbb;
+}
