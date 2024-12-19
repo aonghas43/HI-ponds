@@ -2,5 +2,12 @@ var ponds = {
     "type": "FeatureCollection",
 "name": "HIGS 2024-25 4 Ponds",
 "description": "HIGS 2024-25 Ponds Survey",
-"features": [ ]
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Location": "Duck Pond", "w3w": "///legroom.earl.grapevine", "location_type": "Public space", "pond_size": "Very Large", "pond_type": "natural", "surrounds": "Short Mowed Grass", "Fish": "N", "Newts": "N", "Birds": "Y", "Bird nesting": "N", "Frog": "Y", "Frog spawn": "Y", "Toad": "N", "Dragonflies/Damsonflies": "Y", "Grass snake": "N", "photo": "", "gps_lat": 52.25196019, "gps_long": 0.107976479 }, "geometry": { "type": "Point", "coordinates": [ 0.107976479, 52.25196019 ] } },
+{ "type": "Feature", "properties": { "Location": "fake pond 1", "w3w": "", "location_type": "Garden", "pond_size": "Mini", "pond_type": "formal", "surrounds": "Short Mowed Grass", "Fish": "Y", "Newts": "Y", "Birds": "N", "Bird nesting": "Y", "Frog": "N", "Frog spawn": "N", "Toad": "Y", "Dragonflies/Damsonflies": "Y", "Grass snake": "N", "photo": "", "gps_lat": 52.23968116, "gps_long": 0.10554245 }, "geometry": { "type": "Point", "coordinates": [ 0.10554245, 52.23968116 ] } },
+{ "type": "Feature", "properties": { "Location": "fake pond 2", "w3w": "", "location_type": "Garden", "pond_size": "Small", "pond_type": "natural", "surrounds": "Short Mowed Grass", "Fish": "Y", "Newts": "N", "Birds": "N", "Bird nesting": "N", "Frog": "Y", "Frog spawn": "Y", "Toad": "N", "Dragonflies/Damsonflies": "N", "Grass snake": "N", "photo": "", "gps_lat": 52.23944082, "gps_long": 0.106017845 }, "geometry": { "type": "Point", "coordinates": [ 0.106017845, 52.23944082 ] } },
+{ "type": "Feature", "properties": { "Location": "fake pond 3", "w3w": "", "location_type": "Garden", "pond_size": "Medium", "pond_type": "natural", "surrounds": "Long Grass and/or other planting", "Fish": "Y", "Newts": "N", "Birds": "N", "Bird nesting": "N", "Frog": "N", "Frog spawn": "N", "Toad": "N", "Dragonflies/Damsonflies": "N", "Grass snake": "N", "photo": "", "gps_lat": 52.23933476, "gps_long": 0.106530092 }, "geometry": { "type": "Point", "coordinates": [ 0.106530092, 52.23933476 ] } },
+{ "type": "Feature", "properties": { "Location": "fake pond 4", "w3w": "", "location_type": "Other", "pond_size": "Large", "pond_type": "natural", "surrounds": "Paved or other hard surface", "Fish": "Y", "Newts": "N", "Birds": "Y", "Bird nesting": "N", "Frog": "Y", "Frog spawn": "Y", "Toad": "Y", "Dragonflies/Damsonflies": "N", "Grass snake": "Y", "photo": "", "gps_lat": 52.23927496, "gps_long": 0.105503755 }, "geometry": { "type": "Point", "coordinates": [ 0.105503755, 52.23927496 ] } }
+]
 }

@@ -6,7 +6,8 @@
 	    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 						maxZoom: 20,
 						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-						crossOrigin: 'anonymous'
+						crossOrigin: 'anonymous',
+						referrerPolicy: 'same-origin'
 					});
      
 		
@@ -26,23 +27,99 @@
 		               <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>'
 	});
 
+	function pondPopupContent(feature) {
+		props = feature.properties
 
-	const key = 'pRA400aOhw0IeiIEAtBt';
+		//Location
+		//w3w
+		//Location : Garden / Public space/ Other
+		// Size 1. Mini, e.g. washing up bowl, bucket or old sink / 2. Small, maximum dimension 1m / 
+		// 3. Medium, maximum dimension 3m / 4. Large, maximum dimension 6m
+		// 5. Very Large, larger than most garden ponds
+		// type formal / natural
+		// surrounds : i. Paved or other hard surface / ii. Short Mowed Grass / iii. Long Grass and/or other planting
+		// using Fish / Newt / Birds / Bird Nesting / Frog / Frog Spawn / Toad / Dragonflies/Damsonflies / Grass snake
+//
+		return ''
+		/*
+		content = '<table>'
+		props.entries().forEach((v) => content = content + '<tr><td>' + v[0], '</td></td>' + v[1] + '</td></tr>');
+		content = content + '</table> <br/>'
+		var long = feature.geometry.coordinates[1];
+		var lat = feature.geometry.coordinates[0];
+		var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' 
+				+ long + ',' +  lat + '">Google Streetview &copy;' + '</a>';
+		content = content  + Streetview
+		return content
+		*/
+	}
 
-	uk1880_1913 = L.tileLayer('https://api.maptiler.com/tiles/uk-osgb10k1888/{z}/{x}/{y}.jpg?key=' + key, {
-		maxZoom: 17,
-		opacity: 0.85,
-		crossOrigin: 'anonymous',
-		attribution: '\u003ca href=\"https://www.maptiler.com/copyright/\" target=\"_blank\  \
-					Reproduced with the permission of the National Library of Scotland \
-		               <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>'
-	});
+	// On our map we can use different symbols to show wildlife ponds, 
+	// formal ponds, large ponds, mini ponds and then show ponds with frog spawn
 
-	var pondsLayer = L.geoJSON(ponds,{
-			attribution: 'Ponds data owned on behalf of the community by \
+	// makeOptions
+	function makeOptions(feature) {
+		sizemap = {
+			"Mini": 0.5,
+			"Small" : 1,
+			"Medium": 3,
+			"Large" : 6,
+			"Very Large" : 10
+		}
+		try {
+		rad = sizemap[feature.properties["pond_size"] ]
+		} catch(err) {
+			rad = 1
+		}
+		 var geojsonMarkerOptions = {
+				radius: rad,
+				color: "#000",
+				weight: 1,
+				opacity: 0.9,
+				fillOpacity: 0.8,
+				riseOnHover: true,
+				riseOffset: 500,
+				alt: feature.properties.location,
+				title: feature.properties.location
+				};
+		return  geojsonMarkerOptions
+	}
+	function pondMarker(feature, latlng)
+	     { 
+
+			geojsonMarkerOptions = makeOptions(feature)
+			geojsonMarkerOptions["fillColor"] = "#222222";
+
+			return L.circleMarker(latlng, geojsonMarkerOptions);
+	         
+	     };
+
+		var pondsLayer = L.geoJSON(ponds,{
+		pointToLayer: pondMarker,
+		attribution: 'Ponds data owned on behalf of the community by \
 			<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
-		});
+		}).bindPopup(function (layer) {
+			const contents = pondPopupContent(layer.feature)
+		 return 'hello';
+});
 
+		function frogpondsMarker(feature,latlng) {
+			geojsonMarkerOptions = makeOptions(feature)
+			geojsonMarkerOptions["color"]="fff";
+			geojsonMarkerOptions["fillColor"]="#055326";
+			return L.circleMarker(latlng, geojsonMarkerOptions);
+	
+		}
+		var frogpondsLayer =  L.geoJSON(ponds,{
+			pointToLayer: frogpondsMarker,
+			attribution: 'Ponds data owned on behalf of the community by \
+			<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
+			filter: function(feature, layer) {
+				return (feature.properties["Frog"] == "Y")
+			}
+		})
+
+	
 };
 
 
@@ -56,13 +133,13 @@
 			});		
 		// add Layer Control
 		var baseMaps = { 
-						"OpenStreetMap" : tiles,
-						"OS 1:10,000/1:10,560, Great Britain, 1949-1972": uk10_1949_1972,
-						"OS six-Inch 1880-1915": uk1880_1913,
-						"OS six-Inch 1830-1880": uk10_1830_1880
+						"OpenStreetMap" : tiles
+						,"OS 1:10,000/1:10,560, Great Britain, 1949-1972": uk10_1949_1972
+						, "OS six-Inch 1830-1880": uk10_1830_1880
   					}
 		// available layers
-		var overLays = { "ponds" : pondsLayer
+		var overLays = { "ponds" : pondsLayer,
+						 "frogs": frogpondsLayer
 						}
 	
         var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
