@@ -5,7 +5,7 @@
 	// base maps
 	    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 						maxZoom: 20,
-						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> : &copy; OpenStreetMap contributors',
 						crossOrigin: 'anonymous',
 						referrerPolicy: 'same-origin'
 					});
@@ -40,18 +40,15 @@
 		// surrounds : i. Paved or other hard surface / ii. Short Mowed Grass / iii. Long Grass and/or other planting
 		// using Fish / Newt / Birds / Bird Nesting / Frog / Frog Spawn / Toad / Dragonflies/Damsonflies / Grass snake
 //
-		return ''
-		/*
-		content = '<table>'
-		props.entries().forEach((v) => content = content + '<tr><td>' + v[0], '</td></td>' + v[1] + '</td></tr>');
-		content = content + '</table> <br/>'
+		//return ''
+		content = props["Location"]
 		var long = feature.geometry.coordinates[1];
 		var lat = feature.geometry.coordinates[0];
-		var Streetview = '<a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' 
+		var Streetview = '<br/><a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' 
 				+ long + ',' +  lat + '">Google Streetview &copy;' + '</a>';
 		content = content  + Streetview
 		return content
-		*/
+
 	}
 
 	// On our map we can use different symbols to show wildlife ponds, 
@@ -88,7 +85,7 @@
 	     { 
 
 			geojsonMarkerOptions = makeOptions(feature)
-			geojsonMarkerOptions["fillColor"] = "#222222";
+			geojsonMarkerOptions["fillColor"] = "#84c823";
 
 			return L.circleMarker(latlng, geojsonMarkerOptions);
 	         
@@ -99,14 +96,15 @@
 		attribution: 'Ponds data owned on behalf of the community by \
 			<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		}).bindPopup(function (layer) {
-			const contents = pondPopupContent(layer.feature)
-		 return 'hello';
+			var contents = pondPopupContent(layer.feature)
+		 return contents;
 });
 
 		function frogpondsMarker(feature,latlng) {
 			geojsonMarkerOptions = makeOptions(feature)
-			geojsonMarkerOptions["color"]="fff";
-			geojsonMarkerOptions["fillColor"]="#055326";
+			geojsonMarkerOptions["color"]="#222222";
+			geojsonMarkerOptions["fill"] = false
+			geojsonMarkerOptions["radius"] *= 1.4
 			return L.circleMarker(latlng, geojsonMarkerOptions);
 	
 		}
