@@ -18,7 +18,8 @@ def maketext():
 
                 if row["photograph"]:
                     content = content + ' <a target="_blank" alt="Photograph of pond" href="' + row["photograph"] + '">Photograph</a>'
-                    out.write(content + '\n')
+                
+                out.write(content + '\n')
 
 
 def main():

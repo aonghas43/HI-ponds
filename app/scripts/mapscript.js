@@ -30,24 +30,8 @@
 	function pondPopupContent(feature) {
 		props = feature.properties
 
-		//Location
-		//w3w
-		//Location : Garden / Public space/ Other
-		// Size 1. Mini, e.g. washing up bowl, bucket or old sink / 2. Small, maximum dimension 1m / 
-		// 3. Medium, maximum dimension 3m / 4. Large, maximum dimension 6m
-		// 5. Very Large, larger than most garden ponds
-		// type formal / natural
-		// surrounds : i. Paved or other hard surface / ii. Short Mowed Grass / iii. Long Grass and/or other planting
-		// using Fish / Newt / Birds / Bird Nesting / Frog / Frog Spawn / Toad / Dragonflies/Damsonflies / Grass snake
-//
-		//return ''
 		content = props["popup_text"]
-		var long = feature.geometry.coordinates[1];
-		var lat = feature.geometry.coordinates[0];
-		var Streetview = '<br/><a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' 
-				+ long + ',' +  lat + '">Google Streetview &copy;' + '</a>';
-		content = content  + Streetview
-		return content
+			return content
 
 	}
 
@@ -57,14 +41,14 @@
 	// makeOptions
 	function makeOptions(feature) {
 		sizemap = {
-			"Mini": 0.5,
-			"Small" : 1,
-			"Medium": 3,
-			"Large" : 6,
-			"Very Large" : 10
+			1: 3,
+			2 : 5,
+			3 : 7,
+			4 :9,
+			5 : 11
 		}
 		try {
-		rad = sizemap[feature.properties["pond_size"] ]
+		rad = sizemap[feature.properties["size_type"] ]
 		} catch(err) {
 			rad = 1
 		}
@@ -85,7 +69,7 @@
 	     { 
 
 			geojsonMarkerOptions = makeOptions(feature)
-			geojsonMarkerOptions["fillColor"] = "#84c823";
+			geojsonMarkerOptions["fillColor"] = "purple";
 
 			return L.circleMarker(latlng, geojsonMarkerOptions);
 	         
@@ -102,9 +86,10 @@
 
 		function frogpondsMarker(feature,latlng) {
 			geojsonMarkerOptions = makeOptions(feature)
-			geojsonMarkerOptions["color"]="#222222";
+			geojsonMarkerOptions["color"]="#84c823";
 			geojsonMarkerOptions["fill"] = false
-			geojsonMarkerOptions["radius"] *= 1.4
+			geojsonMarkerOptions["radius"] *= 1.75
+			geojsonMarkerOptions["weight"] = 4
 			return L.circleMarker(latlng, geojsonMarkerOptions);
 	
 		}
@@ -113,7 +98,7 @@
 			attribution: 'Ponds data owned on behalf of the community by \
 			<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
 			filter: function(feature, layer) {
-				return (feature.properties["Frog"] == "Y")
+				return (feature.properties["wildlife_in_or_using"].includes("Frog") )
 			}
 		})
 
@@ -122,12 +107,12 @@
 
 
 		// set up map
-		var HisImp = [52.253815589039775, 0.10777473100461067];
+		var HisImp = [52.253763044894114, 0.10754585266113283];
 		var map = L.map('map', {
 			center: HisImp,
 			zoom: 14,
 			// layers which are on by default
-			layers: [tiles]
+			layers: [tiles, pondsLayer]
 			});		
 		// add Layer Control
 		var baseMaps = { 
