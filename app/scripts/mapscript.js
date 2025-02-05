@@ -41,7 +41,7 @@
 		// using Fish / Newt / Birds / Bird Nesting / Frog / Frog Spawn / Toad / Dragonflies/Damsonflies / Grass snake
 //
 		//return ''
-		content = props["Location"]
+		content = props["popup_text"]
 		var long = feature.geometry.coordinates[1];
 		var lat = feature.geometry.coordinates[0];
 		var Streetview = '<br/><a target="_blank" alt="Google streetview in separate tab" href="http://maps.google.com/maps?q=' 
