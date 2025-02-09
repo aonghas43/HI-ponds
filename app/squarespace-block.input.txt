@@ -11,162 +11,162 @@ This file is loaded into squarespace.html via jQuery, for testing only
 
 <!-- replacment for the included css -->
 <style>
-  html, body {
-    height: 100%;
-    margin: 0;
-	
-}
+	html,
+	body {
+		height: 100%;
+		margin: 0;
 
-.leaflet-container {
-    height: 800px;
-    width: 1200px;
-    max-width: 100%;
-    max-height: 100%;
-}
+	}
 
-.svg-icon {
-	/* Abbey fields green */
-	background-color:  #84c823;
-	 /* override element.style height, word wrap*/
-	height: 18px !important;
-    word-break: normal;
-	word-wrap: normal;
-	opacity: 0.3;
-	text-align: center;
-	vertical-align: center;
-}
+	.leaflet-container {
+		height: 800px;
+		width: 1200px;
+		max-width: 100%;
+		max-height: 100%;
+	}
 
-
-
-.svg-icon:hover {
-  color: #FF00FF;
-}
-
-details > summary {
-  padding: 4px;
-  width: 200px;
-  background-color:  #8FBC8F;
-  border: none;
-  box-shadow: 1px 1px 2px #bbbbbb;
-  cursor: pointer;
-  text-align: center;
-}
-
-details > p, details > ul {
-  background-color: #eeeeee;
-  padding: 4px;
-  margin: 0;
-  box-shadow: 1px 1px 2px #bbbbbb;
-}
+	.svg-icon {
+		/* Abbey fields green */
+		background-color: #84c823;
+		/* override element.style height, word wrap*/
+		height: 18px !important;
+		word-break: normal;
+		word-wrap: normal;
+		opacity: 0.3;
+		text-align: center;
+		vertical-align: center;
+	}
 
 
+
+	.svg-icon:hover {
+		color: #FF00FF;
+	}
+
+	details>summary {
+		padding: 4px;
+		width: 200px;
+		background-color: #8FBC8F;
+		border: none;
+		box-shadow: 1px 1px 2px #bbbbbb;
+		cursor: pointer;
+		text-align: center;
+	}
+
+	details>p,
+	details>ul {
+		background-color: #eeeeee;
+		padding: 4px;
+		margin: 0;
+		box-shadow: 1px 1px 2px #bbbbbb;
+	}
 </style>
 
 <!--data -->
 <script type="text/javascript">
-var ponds = {
-    "type": "FeatureCollection",
-    "name": "HIGS 2024-25 4 Ponds",
-    "description": "HIGS 2024-25 Ponds Survey",
-    "crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
-    "bbox": [ 0.090139046, 52.2410806, 0.122491389, 52.2910944 ],                                                                      
-    "features": [
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 4, "size": " Large, maximum dimension 3-6m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Large, maximum dimension 3-6m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds" }, "bbox": [ 0.10508207, 52.24990418, 0.10508207, 52.24990418 ], "geometry": { "type": "Point", "coordinates": [ 0.10508207, 52.24990418 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Frog,Frog Spawn,Birds", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Frog,Frog Spawn,Birds" }, "bbox": [ 0.105238605, 52.25008654, 0.105238605, 52.25008654 ], "geometry": { "type": "Point", "coordinates": [ 0.105238605, 52.25008654 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/0deb8210-7cae-43b8-87c1-55b27894cfc2?fileName=493E3330-9A60-4A2D-8FED-62111CA23FA9.jpeg", "photograph": "493E3330-9A60-4A2D-8FED-62111CA23FA9.jpeg", "wildlife_in_or_using": "Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"493E3330-9A60-4A2D-8FED-62111CA23FA9.jpeg\">Photograph</a>" }, "bbox": [ 0.105997, 52.248618, 0.105997, 52.248618 ], "geometry": { "type": "Point", "coordinates": [ 0.105997, 52.248618 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 1, "size": " Mini, e.g. washing up bowl, bucket or old sink", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/8b0920ab-24bb-417b-b5ab-b1bd2e1a816f?fileName=IMG_7769.jpeg", "photograph": "IMG_7769.jpeg", "wildlife_in_or_using": "Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Mini, e.g. washing up bowl, bucket or old sink <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_7769.jpeg\">Photograph</a>" }, "bbox": [ 0.105238605, 52.25008654, 0.105238605, 52.25008654 ], "geometry": { "type": "Point", "coordinates": [ 0.105238605, 52.25008654 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/e760d241-b3a5-4d30-a295-48e6f9556c52?fileName=IMG_0034.jpeg", "photograph": "IMG_0034.jpeg", "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_0034.jpeg\">Photograph</a>" }, "bbox": [ 0.111446096, 52.2412787, 0.111446096, 52.2412787 ], "geometry": { "type": "Point", "coordinates": [ 0.111446096, 52.2412787 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Front garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Frog Spawn,Dragonflies/Damsonflies,Grass snake,Frog", "popup_text": "<br/><b>Location Type:</b>Front garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Frog Spawn,Dragonflies/Damsonflies,Grass snake,Frog" }, "bbox": [ 0.108834113, 52.24172255, 0.108834113, 52.24172255 ], "geometry": { "type": "Point", "coordinates": [ 0.108834113, 52.24172255 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 1, "size": " Mini, e.g. washing up bowl, bucket or old sink", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/741fae1b-7fcf-4578-95a8-76f1a076f3a2?fileName=IMG_0035.jpeg", "photograph": "IMG_0035.jpeg", "wildlife_in_or_using": "Newt,Frog", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Mini, e.g. washing up bowl, bucket or old sink <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Frog <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_0035.jpeg\">Photograph</a>" }, "bbox": [ 0.111411163, 52.24116475, 0.111411163, 52.24116475 ], "geometry": { "type": "Point", "coordinates": [ 0.111411163, 52.24116475 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Allotment", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/6547701d-b9dc-4cdc-9cd2-882329028b91?fileName=IMG_20240408_171359.jpg", "photograph": "IMG_20240408_171359.jpg", "wildlife_in_or_using": "Frog,Birds,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Allotment <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog,Birds,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_20240408_171359.jpg\">Photograph</a>" }, "bbox": [ 0.107611836, 52.26004708, 0.107611836, 52.26004708 ], "geometry": { "type": "Point", "coordinates": [ 0.107611836, 52.26004708 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/2f9b2894-af0a-4b80-a4ec-81580ec4324a?fileName=20230329_090647.jpg", "photograph": "1000017075.jpg", "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"1000017075.jpg\">Photograph</a>" }, "bbox": [ 0.090139046, 52.2910944, 0.090139046, 52.2910944 ], "geometry": { "type": "Point", "coordinates": [ 0.090139046, 52.2910944 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/4b684a0d-1fff-487f-a146-bba0e360a293?fileName=IMG_20240520_134554033.jpg", "photograph": "20230329_090647.jpg", "wildlife_in_or_using": "Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds <a target=\"_blank\" alt=\"Photograph of pond\" href=\"20230329_090647.jpg\">Photograph</a>" }, "bbox": [ 0.101832594, 52.24997154, 0.101832594, 52.24997154 ], "geometry": { "type": "Point", "coordinates": [ 0.101832594, 52.24997154 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/4b684a0d-1fff-487f-a146-bba0e360a293?fileName=IMG_20240520_134554033.jpg", "photograph": "IMG_20240520_134554033.jpg", "wildlife_in_or_using": "Frog,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_20240520_134554033.jpg\">Photograph</a>" }, "bbox": [ 0.104347356, 52.25412149, 0.104347356, 52.25412149 ], "geometry": { "type": "Point", "coordinates": [ 0.104347356, 52.25412149 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.099686069, 52.25332658, 0.099686069, 52.25332658 ], "geometry": { "type": "Point", "coordinates": [ 0.099686069, 52.25332658 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/f3d9db24-9c04-421b-b595-153485f7afd0?fileName=image.jpg", "photograph": "image.jpg", "wildlife_in_or_using": "Fish,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Fish,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"image.jpg\">Photograph</a>" }, "bbox": [ 0.108015409, 52.25037288, 0.108015409, 52.25037288 ], "geometry": { "type": "Point", "coordinates": [ 0.108015409, 52.25037288 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Dragonflies/Damsonflies" }, "bbox": [ 0.122491389, 52.24905412, 0.122491389, 52.24905412 ], "geometry": { "type": "Point", "coordinates": [ 0.122491389, 52.24905412 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Birds,Frog,Dragonflies/Damsonflies,Frog Spawn,Grass snake", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Fish,Birds,Frog,Dragonflies/Damsonflies,Frog Spawn,Grass snake" }, "bbox": [ 0.112445008, 52.24141251, 0.112445008, 52.24141251 ], "geometry": { "type": "Point", "coordinates": [ 0.112445008, 52.24141251 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.110278908, 52.2410806, 0.110278908, 52.2410806 ], "geometry": { "type": "Point", "coordinates": [ 0.110278908, 52.2410806 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.112427034, 52.25041541, 0.112427034, 52.25041541 ], "geometry": { "type": "Point", "coordinates": [ 0.112427034, 52.25041541 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Dragonflies/Damsonflies" }, "bbox": [ 0.112110685, 52.2534286, 0.112110685, 52.2534286 ], "geometry": { "type": "Point", "coordinates": [ 0.112110685, 52.2534286 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.106100287, 52.24958965, 0.106100287, 52.24958965 ], "geometry": { "type": "Point", "coordinates": [ 0.106100287, 52.24958965 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/2d289836-4293-4b2d-8c56-bf6224af4afa?fileName=RK&JV Pond.jpg", "photograph": "RK&JV Pond.jpg", "wildlife_in_or_using": "Newt,Birds,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Newt,Birds,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"RK&JV Pond.jpg\">Photograph</a>" }, "bbox": [ 0.117172236, 52.24936131, 0.117172236, 52.24936131 ], "geometry": { "type": "Point", "coordinates": [ 0.117172236, 52.24936131 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 4, "size": " Large, maximum dimension 6m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Birds,Frog,Dragonflies/Damsonflies,Fish", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Large, maximum dimension 6m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Birds,Frog,Dragonflies/Damsonflies,Fish" }, "bbox": [ 0.10291027, 52.25399143, 0.10291027, 52.25399143 ], "geometry": { "type": "Point", "coordinates": [ 0.10291027, 52.25399143 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 4, "size": " Large, maximum dimension 6m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Bird Nesting,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies,Fish", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Large, maximum dimension 6m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Bird Nesting,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies,Fish" }, "bbox": [ 0.101957228, 52.25306039, 0.101957228, 52.25306039 ], "geometry": { "type": "Point", "coordinates": [ 0.101957228, 52.25306039 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/729feddb-e1bf-43d0-97f9-3d885cd01b27?fileName=IMG_3723.jpeg", "photograph": "IMG_3723.jpeg", "wildlife_in_or_using": "Fish,Newt,Birds,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Fish,Newt,Birds,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_3723.jpeg\">Photograph</a>" }, "bbox": [ 0.109294615, 52.24753075, 0.109294615, 52.24753075 ], "geometry": { "type": "Point", "coordinates": [ 0.109294615, 52.24753075 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/1a80b74d-9f63-4342-8ec7-e22a0a47b629?fileName=20250113_143607.jpg", "photograph": "20250113_143607.jpg", "wildlife_in_or_using": "Newt,Birds,Frog,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"20250113_143607.jpg\">Photograph</a>" }, "bbox": [ 0.107564274, 52.24119731, 0.107564274, 52.24119731 ], "geometry": { "type": "Point", "coordinates": [ 0.107564274, 52.24119731 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/d259f5f5-8dfb-44fc-936f-32000bb873fe?fileName=IMG_6068.jpeg", "photograph": "IMG_6068.jpeg", "wildlife_in_or_using": "Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_6068.jpeg\">Photograph</a>" }, "bbox": [ 0.109539165, 52.2464651, 0.109539165, 52.2464651 ], "geometry": { "type": "Point", "coordinates": [ 0.109539165, 52.2464651 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/a93ea777-ea05-4d1b-8869-7d84495ce4d0?fileName=IMG_1732.jpeg", "photograph": "IMG_1732.jpeg", "wildlife_in_or_using": "Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"IMG_1732.jpeg\">Photograph</a>" }, "bbox": [ 0.099587096, 52.25045551, 0.099587096, 52.25045551 ], "geometry": { "type": "Point", "coordinates": [ 0.099587096, 52.25045551 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Back garden", "size_type": 4, "size": " Large, maximum dimension 6m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Back garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Large, maximum dimension 6m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.101891374, 52.25302566, 0.101891374, 52.25302566 ], "geometry": { "type": "Point", "coordinates": [ 0.101891374, 52.25302566 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/3f2bb1db-c795-4f42-8526-f455df8b434c?fileName=Pond survey 15 ill Lane.jpg", "photograph": "Pond survey 15 ill Lane.jpg", "wildlife_in_or_using": "Newt,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Newt,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"Pond survey 15 ill Lane.jpg\">Photograph</a>" }, "bbox": [ 0.112242814, 52.25443227, 0.112242814, 52.25443227 ], "geometry": { "type": "Point", "coordinates": [ 0.112242814, 52.25443227 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.113339848, 52.24960451, 0.113339848, 52.24960451 ], "geometry": { "type": "Point", "coordinates": [ 0.113339848, 52.24960451 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [ 0.09710832, 52.25135323, 0.09710832, 52.25135323 ], "geometry": { "type": "Point", "coordinates": [ 0.09710832, 52.25135323 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Dragonflies/Damsonflies" }, "bbox": [ 0.108527237, 52.2420498, 0.108527237, 52.2420498 ], "geometry": { "type": "Point", "coordinates": [ 0.108527237, 52.2420498 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 1, "size": " Mini, e.g. washing up bowl, bucket or old sink", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/55cc9a65-eda2-4556-97d5-a6cdad3bef35?fileName=1000009963.jpg", "photograph": "1000009963.jpg", "wildlife_in_or_using": "Frog", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Mini, e.g. washing up bowl, bucket or old sink <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog <a target=\"_blank\" alt=\"Photograph of pond\" href=\"1000009963.jpg\">Photograph</a>" }, "bbox": [ 0.114134397, 52.25650159, 0.114134397, 52.25650159 ], "geometry": { "type": "Point", "coordinates": [ 0.114134397, 52.25650159 ] } },
-    { "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "https://abbeyfields.online/api/1.0/form-submission-service-api/external/form-owning-entities/5f2dd8d4ba318205a289f041/forms/675469f28bf19a4aa30f7b91/files/80209004-7582-4cb0-90ef-df4aafef463c?fileName=1000009964.jpg", "photograph": "1000009964.jpg", "wildlife_in_or_using": "Birds,Frog,Frog Spawn,Grass snake", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Frog Spawn,Grass snake <a target=\"_blank\" alt=\"Photograph of pond\" href=\"1000009964.jpg\">Photograph</a>" }, "bbox": [ 0.114100987, 52.25649005, 0.114100987, 52.25649005 ], "geometry": { "type": "Point", "coordinates": [ 0.114100987, 52.25649005 ] } }
-    ]
-    }
-    
+	var ponds = {
+		"type": "FeatureCollection",
+		"name": "HIGS 2024-25 4 Ponds",
+		"description": "HIGS 2024-25 Ponds Survey",
+		"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+		"bbox": [0.090139046, 52.2410806, 0.122491389, 52.2910944],
+		"features": [
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 4, "size": " Large, maximum dimension 3-6m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Large, maximum dimension 3-6m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds" }, "bbox": [0.10508207, 52.24990418, 0.10508207, 52.24990418], "geometry": { "type": "Point", "coordinates": [0.10508207, 52.24990418] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Frog,Frog Spawn,Birds", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Frog,Frog Spawn,Birds" }, "bbox": [0.105238605, 52.25008654, 0.105238605, 52.25008654], "geometry": { "type": "Point", "coordinates": [0.105238605, 52.25008654] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "493E3330-9A60-4A2D-8FED-62111CA23FA9.jpeg", "photograph": "493E3330-9A60-4A2D-8FED-62111CA23FA9.jpeg", "wildlife_in_or_using": "Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/2dc790bd-4226-4bb7-b62b-63459953b5db/493E3330-9A60-4A2D-8FED-62111CA23FA9.jpeg\">Photograph</a>" }, "bbox": [0.105997, 52.248618, 0.105997, 52.248618], "geometry": { "type": "Point", "coordinates": [0.105997, 52.248618] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 1, "size": " Mini, e.g. washing up bowl, bucket or old sink", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "IMG_7769.jpeg", "photograph": "IMG_7769.jpeg", "wildlife_in_or_using": "Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Mini, e.g. washing up bowl, bucket or old sink <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/0d4a1780-0c11-4700-b64e-5af158771793/IMG_7769.jpeg\">Photograph</a>" }, "bbox": [0.105238605, 52.25008654, 0.105238605, 52.25008654], "geometry": { "type": "Point", "coordinates": [0.105238605, 52.25008654] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "IMG_0034.jpeg", "photograph": "IMG_0034.jpeg", "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/67cda7e0-e391-4c35-a564-711fe350b6db/IMG_0034.jpeg\">Photograph</a>" }, "bbox": [0.111446096, 52.2412787, 0.111446096, 52.2412787], "geometry": { "type": "Point", "coordinates": [0.111446096, 52.2412787] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Front garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Frog Spawn,Dragonflies/Damsonflies,Grass snake,Frog", "popup_text": "<br/><b>Location Type:</b>Front garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Frog Spawn,Dragonflies/Damsonflies,Grass snake,Frog" }, "bbox": [0.108834113, 52.24172255, 0.108834113, 52.24172255], "geometry": { "type": "Point", "coordinates": [0.108834113, 52.24172255] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 1, "size": " Mini, e.g. washing up bowl, bucket or old sink", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "IMG_0035.jpeg", "photograph": "IMG_0035.jpeg", "wildlife_in_or_using": "Newt,Frog", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Mini, e.g. washing up bowl, bucket or old sink <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Frog <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/1d72da7c-a210-4319-a013-c41073780ffb/IMG_0035.jpeg\">Photograph</a>" }, "bbox": [0.111411163, 52.24116475, 0.111411163, 52.24116475], "geometry": { "type": "Point", "coordinates": [0.111411163, 52.24116475] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Allotment", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "IMG_20240408_171359.jpg", "photograph": "IMG_20240408_171359.jpg", "wildlife_in_or_using": "Frog,Birds,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Allotment <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog,Birds,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/1d2b9e94-4ee4-4a65-9974-8d652427795b/IMG_20240408_171359.jpg\">Photograph</a>" }, "bbox": [0.107611836, 52.26004708, 0.107611836, 52.26004708], "geometry": { "type": "Point", "coordinates": [0.107611836, 52.26004708] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "1000017075.jpg", "photograph": "1000017075.jpg", "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/1a6f3d79-4e83-4798-aacc-7fbc38c60a11/1000017075.jpg\">Photograph</a>" }, "bbox": [0.090139046, 52.2910944, 0.090139046, 52.2910944], "geometry": { "type": "Point", "coordinates": [0.090139046, 52.2910944] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "20230329_090647.jpg", "photograph": "20230329_090647.jpg", "wildlife_in_or_using": "Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Newt,Frog,Frog Spawn,Dragonflies/Damsonflies,Birds <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/3b03f2ac-1b32-458b-b4f8-f909c8e2e8dc/20230329_090647.jpg\">Photograph</a>" }, "bbox": [0.101832594, 52.24997154, 0.101832594, 52.24997154], "geometry": { "type": "Point", "coordinates": [0.101832594, 52.24997154] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "IMG_20240520_134554033.jpg", "photograph": "IMG_20240520_134554033.jpg", "wildlife_in_or_using": "Frog,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/ceaf1371-20af-480c-8a8a-aa35f04ac57f/IMG_20240520_134554033.jpg\">Photograph</a>" }, "bbox": [0.104347356, 52.25412149, 0.104347356, 52.25412149], "geometry": { "type": "Point", "coordinates": [0.104347356, 52.25412149] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.099686069, 52.25332658, 0.099686069, 52.25332658], "geometry": { "type": "Point", "coordinates": [0.099686069, 52.25332658] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "image.jpg", "photograph": "image.jpg", "wildlife_in_or_using": "Fish,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Fish,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/7f40c059-eee3-441e-9295-55c33bcb9eea/image.jpg\">Photograph</a>" }, "bbox": [0.108015409, 52.25037288, 0.108015409, 52.25037288], "geometry": { "type": "Point", "coordinates": [0.108015409, 52.25037288] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Dragonflies/Damsonflies" }, "bbox": [0.122491389, 52.24905412, 0.122491389, 52.24905412], "geometry": { "type": "Point", "coordinates": [0.122491389, 52.24905412] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Birds,Frog,Dragonflies/Damsonflies,Frog Spawn,Grass snake", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Fish,Birds,Frog,Dragonflies/Damsonflies,Frog Spawn,Grass snake" }, "bbox": [0.112445008, 52.24141251, 0.112445008, 52.24141251], "geometry": { "type": "Point", "coordinates": [0.112445008, 52.24141251] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.110278908, 52.2410806, 0.110278908, 52.2410806], "geometry": { "type": "Point", "coordinates": [0.110278908, 52.2410806] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.112427034, 52.25041541, 0.112427034, 52.25041541], "geometry": { "type": "Point", "coordinates": [0.112427034, 52.25041541] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Dragonflies/Damsonflies" }, "bbox": [0.112110685, 52.2534286, 0.112110685, 52.2534286], "geometry": { "type": "Point", "coordinates": [0.112110685, 52.2534286] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.106100287, 52.24958965, 0.106100287, 52.24958965], "geometry": { "type": "Point", "coordinates": [0.106100287, 52.24958965] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "RK&JV Pond.jpg", "photograph": "RK&JV Pond.jpg", "wildlife_in_or_using": "Newt,Birds,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Newt,Birds,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/ac491451-ec75-4d8f-9b01-75c13f7f5fd4/RK_JV.jpg\">Photograph</a>" }, "bbox": [0.117172236, 52.24936131, 0.117172236, 52.24936131], "geometry": { "type": "Point", "coordinates": [0.117172236, 52.24936131] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 4, "size": " Large, maximum dimension 6m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Birds,Frog,Dragonflies/Damsonflies,Fish", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Large, maximum dimension 6m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Birds,Frog,Dragonflies/Damsonflies,Fish" }, "bbox": [0.10291027, 52.25399143, 0.10291027, 52.25399143], "geometry": { "type": "Point", "coordinates": [0.10291027, 52.25399143] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 4, "size": " Large, maximum dimension 6m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Bird Nesting,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies,Fish", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Large, maximum dimension 6m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Bird Nesting,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies,Fish" }, "bbox": [0.101957228, 52.25306039, 0.101957228, 52.25306039], "geometry": { "type": "Point", "coordinates": [0.101957228, 52.25306039] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": "IMG_3723.jpeg", "photograph": "IMG_3723.jpeg", "wildlife_in_or_using": "Fish,Newt,Birds,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Fish,Newt,Birds,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/12c7dc8c-1bf4-4006-96d0-4ac9bbdc9760/IMG_3723.jpeg\">Photograph</a>" }, "bbox": [0.109294615, 52.24753075, 0.109294615, 52.24753075], "geometry": { "type": "Point", "coordinates": [0.109294615, 52.24753075] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "20250113_143607.jpg", "photograph": "20250113_143607.jpg", "wildlife_in_or_using": "Newt,Birds,Frog,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/69ccfde7-2679-42ce-a2f6-bd252beec1e6/20250113_143607.jpg\">Photograph</a>" }, "bbox": [0.107564274, 52.24119731, 0.107564274, 52.24119731], "geometry": { "type": "Point", "coordinates": [0.107564274, 52.24119731] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "IMG_6068.jpeg", "photograph": "IMG_6068.jpeg", "wildlife_in_or_using": "Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Birds,Frog,Frog Spawn,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/5cdcab41-65da-4c69-80b7-8a0e0413ebf3/IMG_6068.jpeg\">Photograph</a>" }, "bbox": [0.109539165, 52.2464651, 0.109539165, 52.2464651], "geometry": { "type": "Point", "coordinates": [0.109539165, 52.2464651] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "IMG_1732.jpeg", "photograph": "IMG_1732.jpeg", "wildlife_in_or_using": "Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/40cfe121-e67a-4d3d-b0f6-d5609622c1c8/IMG_1732.jpeg\">Photograph</a>" }, "bbox": [0.099587096, 52.25045551, 0.099587096, 52.25045551], "geometry": { "type": "Point", "coordinates": [0.099587096, 52.25045551] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Back garden", "size_type": 4, "size": " Large, maximum dimension 6m", "pond_type": "A", "Type": " Formal Ornamental Pond", "surrounds_type": "i", "surrounds": " Paved or other hard surface", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Back garden <br/><b>Pond Type: </b> Formal Ornamental Pond <br/><b>Approximate Size: </b> Large, maximum dimension 6m <br/><b>Surroundings: </b> Paved or other hard surface <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.101891374, 52.25302566, 0.101891374, 52.25302566], "geometry": { "type": "Point", "coordinates": [0.101891374, 52.25302566] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "ii", "surrounds": " Short Mowed Grass", "photograph_uploaded": "Pond survey 15 ill Lane.jpg", "photograph": "Pond survey 15 ill Lane.jpg", "wildlife_in_or_using": "Newt,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Short Mowed Grass <br/><b>Wildlife: </b>Newt,Frog,Frog Spawn,Toad,Dragonflies/Damsonflies <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/8d10dbbb-36fa-49d2-8c3b-f220a7600ae3/Pond%2Bsurvey%2B15%2Bill%2BLane.jpg\">Photograph</a>" }, "bbox": [0.112242814, 52.25443227, 0.112242814, 52.25443227], "geometry": { "type": "Point", "coordinates": [0.112242814, 52.25443227] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.113339848, 52.24960451, 0.113339848, 52.24960451], "geometry": { "type": "Point", "coordinates": [0.113339848, 52.24960451] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Fish,Newt,Birds,Frog,Frog Spawn,Dragonflies/Damsonflies" }, "bbox": [0.09710832, 52.25135323, 0.09710832, 52.25135323], "geometry": { "type": "Point", "coordinates": [0.09710832, 52.25135323] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 3, "size": " Medium, maximum dimension 3m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": null, "photograph": null, "wildlife_in_or_using": "Newt,Birds,Frog,Dragonflies/Damsonflies", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Medium, maximum dimension 3m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Newt,Birds,Frog,Dragonflies/Damsonflies" }, "bbox": [0.108527237, 52.2420498, 0.108527237, 52.2420498], "geometry": { "type": "Point", "coordinates": [0.108527237, 52.2420498] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 1, "size": " Mini, e.g. washing up bowl, bucket or old sink", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "1000009963.jpg", "photograph": "1000009963.jpg", "wildlife_in_or_using": "Frog", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Mini, e.g. washing up bowl, bucket or old sink <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Frog <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/8fa36c1d-2e6e-4d34-9c98-4448d83a4c41/1000009963.jpg\">Photograph</a>" }, "bbox": [0.114134397, 52.25650159, 0.114134397, 52.25650159], "geometry": { "type": "Point", "coordinates": [0.114134397, 52.25650159] } },
+			{ "type": "Feature", "properties": { "Location_Type": "Garden", "size_type": 2, "size": " Small, maximum dimension 1m", "pond_type": "B", "Type": " Natural Looking Pond", "surrounds_type": "iii", "surrounds": " Long Grass and/or other planting", "photograph_uploaded": "1000009964.jpg", "photograph": "1000009964.jpg", "wildlife_in_or_using": "Birds,Frog,Frog Spawn,Grass snake", "popup_text": "<br/><b>Location Type:</b>Garden <br/><b>Pond Type: </b> Natural Looking Pond <br/><b>Approximate Size: </b> Small, maximum dimension 1m <br/><b>Surroundings: </b> Long Grass and/or other planting <br/><b>Wildlife: </b>Birds,Frog,Frog Spawn,Grass snake <a target=\"_blank\" alt=\"Photograph of pond\" href=\"https://images.squarespace-cdn.com/content/v1/64f8e3ba61da2c2f7b3129e6/0a677e1c-b8c3-470d-9e30-e2ccef76dc9f/1000009964.jpg\">Photograph</a>" }, "bbox": [0.114100987, 52.25649005, 0.114100987, 52.25649005], "geometry": { "type": "Point", "coordinates": [0.114100987, 52.25649005] } }
+		]
+	}
+
 </script>
 
 
 <!-- mapscript.js contents here -->
 <script type="text/javascript">
-//<!-- map code here -->
-{
-	"use strict";
-		 
-	// base maps
-	    var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-						maxZoom: 20,
-						attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> : &copy; OpenStreetMap contributors',
-						crossOrigin: 'anonymous',
-						referrerPolicy: 'same-origin'
-					});
-     
-		
-	var uk10_1949_1972 = L.tileLayer('https://geo.nls.uk/mapdata3/os/britain10knationalgridnew/{z}/{x}/{y}.png', {
-		maxZoom: 20,
-		opacity: 0.85,
-		crossOrigin: 'anonymous',
-		attribution: 'Reproduced with the permission of the National Library of Scotland \
+	//<!-- map code here -->
+	{
+		"use strict";
+
+		// base maps
+		var tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 20,
+			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> : &copy; OpenStreetMap contributors',
+			crossOrigin: 'anonymous',
+			referrerPolicy: 'same-origin'
+		});
+
+
+		var uk10_1949_1972 = L.tileLayer('https://geo.nls.uk/mapdata3/os/britain10knationalgridnew/{z}/{x}/{y}.png', {
+			maxZoom: 20,
+			opacity: 0.85,
+			crossOrigin: 'anonymous',
+			attribution: 'Reproduced with the permission of the National Library of Scotland \
 		               <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>'
-	});
+		});
 
-	var uk10_1830_1880 = L.tileLayer('https://mapseries-tilesets.s3.amazonaws.com/os/six-inch-cambridgeshire/{z}/{x}/{y}.png',{
-		maxZoom: 20,
-		opacity: 0.85,
-		crossOrigin: 'anonymous',
-		attribution: 'Reproduced with the permission of the National Library of Scotland \
+		var uk10_1830_1880 = L.tileLayer('https://mapseries-tilesets.s3.amazonaws.com/os/six-inch-cambridgeshire/{z}/{x}/{y}.png', {
+			maxZoom: 20,
+			opacity: 0.85,
+			crossOrigin: 'anonymous',
+			attribution: 'Reproduced with the permission of the National Library of Scotland \
 		               <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY</a>'
-	});
+		});
 
-	function pondPopupContent(feature) {
-		props = feature.properties
+		function pondPopupContent(feature) {
+			props = feature.properties
 
-		content = props["popup_text"]
+			content = props["popup_text"]
 			return content
 
-	}
-
-	// On our map we can use different symbols to show wildlife ponds, 
-	// formal ponds, large ponds, mini ponds and then show ponds with frog spawn
-
-	// makeOptions
-	function makeOptions(feature) {
-		sizemap = {
-			1: 3,
-			2 : 5,
-			3 : 7,
-			4 :9,
-			5 : 11
 		}
-		try {
-		rad = sizemap[feature.properties["size_type"] ]
-		} catch(err) {
-			rad = 1
-		}
-		 var geojsonMarkerOptions = {
+
+		// On our map we can use different symbols to show wildlife ponds, 
+		// formal ponds, large ponds, mini ponds and then show ponds with frog spawn
+
+		// makeOptions
+		function makeOptions(feature) {
+			sizemap = {
+				1: 3,
+				2: 5,
+				3: 7,
+				4: 9,
+				5: 11
+			}
+			try {
+				rad = sizemap[feature.properties["size_type"]]
+			} catch (err) {
+				rad = 1
+			}
+			var geojsonMarkerOptions = {
 				radius: rad,
 				color: "#000",
 				weight: 1,
@@ -176,70 +176,70 @@ var ponds = {
 				riseOffset: 500,
 				alt: feature.properties.location,
 				title: feature.properties.location
-				};
-		return  geojsonMarkerOptions
-	}
-	function pondMarker(feature, latlng)
-	     { 
+			};
+			return geojsonMarkerOptions
+		}
+		function pondMarker(feature, latlng) {
 
 			geojsonMarkerOptions = makeOptions(feature)
 			geojsonMarkerOptions["fillColor"] = "purple";
 
 			return L.circleMarker(latlng, geojsonMarkerOptions);
-	         
-	     };
 
-		var pondsLayer = L.geoJSON(ponds,{
-		pointToLayer: pondMarker,
-		attribution: 'Ponds data owned on behalf of the community by \
+		};
+
+		var pondsLayer = L.geoJSON(ponds, {
+			pointToLayer: pondMarker,
+			attribution: 'Ponds data owned on behalf of the community by \
 			<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>'
 		}).bindPopup(function (layer) {
 			var contents = pondPopupContent(layer.feature)
-		 return contents;
-});
+			return contents;
+		});
 
-		function frogpondsMarker(feature,latlng) {
+		function frogpondsMarker(feature, latlng) {
 			geojsonMarkerOptions = makeOptions(feature)
-			geojsonMarkerOptions["color"]="#84c823";
+			geojsonMarkerOptions["color"] = "#84c823";
 			geojsonMarkerOptions["fill"] = false
 			geojsonMarkerOptions["radius"] *= 1.75
 			geojsonMarkerOptions["weight"] = 4
 			return L.circleMarker(latlng, geojsonMarkerOptions);
-	
+
 		}
-		var frogpondsLayer =  L.geoJSON(ponds,{
+		var frogpondsLayer = L.geoJSON(ponds, {
 			pointToLayer: frogpondsMarker,
 			attribution: 'Ponds data owned on behalf of the community by \
 			<a href="https://www.higreenspaces.org/about-us">Histon and Impington Green Spaces</a>',
-			filter: function(feature, layer) {
-				return (feature.properties["wildlife_in_or_using"].includes("Frog") )
+			filter: function (feature, layer) {
+				return (feature.properties["wildlife_in_or_using"].includes("Frog"))
 			}
 		})
 
-	
-};
+
+	};
 
 
-		// set up map
-		var HisImp = [52.253763044894114, 0.10754585266113283];
-		var map = L.map('map', {
-			center: HisImp,
-			zoom: 14,
-			// layers which are on by default
-			layers: [tiles, pondsLayer]
-			});		
-		// add Layer Control
-		var baseMaps = { 
-						"OpenStreetMap" : tiles
-						,"OS 1:10,000/1:10,560, Great Britain, 1949-1972": uk10_1949_1972
-						, "OS six-Inch 1830-1880": uk10_1830_1880
-  					}
-		// available layers
-		var overLays = { "ponds" : pondsLayer,
-						 "frogs": frogpondsLayer
-						}
-	
-        var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
+	// set up map
+	var HisImp = [52.253763044894114, 0.10754585266113283];
+	var map = L.map('map', {
+		center: HisImp,
+		zoom: 14,
+		// layers which are on by default
+		layers: [tiles, pondsLayer]
+	});
+	// add Layer Control
+	var baseMaps = {
+		"OpenStreetMap": tiles
+		, "OS 1:10,000/1:10,560, Great Britain, 1949-1972": uk10_1949_1972
+		, "OS six-Inch 1830-1880": uk10_1830_1880
+	}
+	// available layers
+	var overLays = {
+		"ponds": pondsLayer,
+		"frogs": frogpondsLayer
+	}
+
+	var layerControl = L.control.layers(baseMaps, overLays).addTo(map);
 
 </script>
 
@@ -247,33 +247,41 @@ var ponds = {
 <!-- acknowledgements block here -->
 <div id="ack">
 
-<details>
-<summary>Acknowledgements</summary>
-<p>
-If you want to reuse or copy this application : it is licensed using the <a href="https://www.apache.org/licenses/LICENSE-2.0">APACHE 2 licence</a> and uses the <a href="https://leafletjs.com/">Leafletjs library </a> which is licenced under the <a href="https://github.com/Leaflet/Leaflet/blob/main/LICENSE"> BSD 2 licence</a>.
-TL;DR : "OK to copy and reuse"
-<p>
-Data and pictures where present, submitted by members of Histon and Impington community. Other map data is collated or reused from the following freely available sources :
-<p>
-<ul>
-<li><a href="https://martinjc.github.io/UK-GeoJSON/">UK Westminster parliamentary wards(Contains Ordnance Survey, Office of National Statistics, National Records Scotland and LPS Intellectual Property data © Crown copyright and database right [2016]. Data licensed under the terms of the Open Government Licence.Ordnance Survey data covered by OS OpenData Licence.  )</a></li>
-<li><a href="https://www.openstreetmap.org/copyright/">OpenStreetmaps data(Open Data Commons Open Database License )</a></li>
-<li><a href="https://maps.nls.uk/">National Library of Scotland historic maps(CC-BY licence)</a></li>
-<li></li>
-</ul>
-<p>
-Licences applicable to data
-<ul>
-<li><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government Licence</a></li>
-<li><a href="https://www.openstreetmap.org/copyright/">Open Data Commons Open Database License</a></li>
-<li><a href="https://maps.nls.uk/copyright.html#noncommercial"> Creative commons non-commercial (CC-BY)</a></li>
-</ul>
-<p>
-Data collated, cleaned, analysed etc by HIGS using the following freely available software:
-<ul>
-<li><a href="https://qgis.org/en/site/">QGIS software</a></li>
-<li><a href="https://maps.google.co.uk/intl/en-GB/earth/download/gep/agree.html">Google Earth Pro</a></li>
-</details>
+	<details>
+		<summary>Acknowledgements</summary>
+		<p>
+			If you want to reuse or copy this application : it is licensed using the <a
+				href="https://www.apache.org/licenses/LICENSE-2.0">APACHE 2 licence</a> and uses the <a
+				href="https://leafletjs.com/">Leafletjs library </a> which is licenced under the <a
+				href="https://github.com/Leaflet/Leaflet/blob/main/LICENSE"> BSD 2 licence</a>.
+			TL;DR : "OK to copy and reuse"
+		<p>
+			Data and pictures where present, submitted by members of Histon and Impington community. Other map data is
+			collated or reused from the following freely available sources :
+		<p>
+		<ul>
+			<li><a href="https://martinjc.github.io/UK-GeoJSON/">UK Westminster parliamentary wards(Contains Ordnance
+					Survey, Office of National Statistics, National Records Scotland and LPS Intellectual Property data
+					© Crown copyright and database right [2016]. Data licensed under the terms of the Open Government
+					Licence.Ordnance Survey data covered by OS OpenData Licence. )</a></li>
+			<li><a href="https://www.openstreetmap.org/copyright/">OpenStreetmaps data(Open Data Commons Open Database
+					License )</a></li>
+			<li><a href="https://maps.nls.uk/">National Library of Scotland historic maps(CC-BY licence)</a></li>
+			<li></li>
+		</ul>
+		<p>
+			Licences applicable to data
+		<ul>
+			<li><a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/">Open Government
+					Licence</a></li>
+			<li><a href="https://www.openstreetmap.org/copyright/">Open Data Commons Open Database License</a></li>
+			<li><a href="https://maps.nls.uk/copyright.html#noncommercial"> Creative commons non-commercial (CC-BY)</a>
+			</li>
+		</ul>
+		<p>
+			Data collated, cleaned, analysed etc by HIGS using the following freely available software:
+		<ul>
+			<li><a href="https://qgis.org/en/site/">QGIS software</a></li>
+			<li><a href="https://maps.google.co.uk/intl/en-GB/earth/download/gep/agree.html">Google Earth Pro</a></li>
+	</details>
 </div>
-
-
